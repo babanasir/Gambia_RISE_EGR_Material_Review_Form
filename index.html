@@ -51,7 +51,7 @@
                         <option value="" disabled selected>Select Type</option>
                         <option value="Teacher Guide">Teacher Guide</option>
                         <option value="Pupil Book">Pupil Book</option>
-                        <option value="Supplementary Material">Supplementary Material</option>
+                        <option value="Supplementary Material">Supplementary Materials</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
@@ -109,7 +109,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Date input was removed here to prevent duplicate date column -->
                     <div>
-                        <label for="reviewer" class="block text-sm font-medium text-gray-700">Reviewer Name</label>
+                        <label for="reviewer" class="block text-sm font-medium text-gray-700">Name of Reviewer</label>
                         <input type="text" id="reviewer" name="reviewer" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <!-- Empty div to maintain grid layout, or remove md:grid-cols-2 -->
@@ -123,7 +123,7 @@
                     </div>
                     
                     <div>
-                        <label for="doc_link" class="block text-sm font-medium text-gray-700">Link to Source Document (Read-Only)</label>
+                        <label for="doc_link" class="block text-sm font-medium text-gray-700">Link to Source Document</label>
                         <input type="url" id="doc_link" name="doc_link" readonly class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border bg-gray-200">
                     </div>
 
@@ -196,32 +196,32 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             <!-- Item 1: Orthography -->
-                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Uses correct orthography and spelling for the target language</td>
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Uses correct orthography and spelling</td>
                                 <td class="text-center"><input type="radio" name="sec2_q_orthography" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_orthography" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_orthography" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
-                                <td class="text-center"><input type="radio" name="sec2_q_orthography" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_orthography" value="Not Applicable" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
                             <!-- Item 2: Complexity -->
-                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Text complexity matches the intended reading level per leveling guide</td>
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Text complexity matches the intended reading level</td>
                                 <td class="text-center"><input type="radio" name="sec2_q_complexity" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_complexity" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_complexity" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
-                                <td class="text-center"><input type="radio" name="sec2_q_complexity" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_complexity" value="Not Applicable" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
                             <!-- Item 3: Progression -->
-                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Progression is gradual within and across grade 1</td>
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Progression is gradual</td>
                                 <td class="text-center"><input type="radio" name="sec2_q_progression" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_progression" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_progression" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
-                                <td class="text-center"><input type="radio" name="sec2_q_progression" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_progression" value="Not Applicable" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
                             <!-- Item 4: Repetition -->
-                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Repetition and pattern support emerging readers (early levels)</td>
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Repetition and pattern support emerging readers</td>
                                 <td class="text-center"><input type="radio" name="sec2_q_repetition" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_repetition" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_repetition" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
-                                <td class="text-center"><input type="radio" name="sec2_q_repetition" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_repetition" value="Not Applicable" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -262,8 +262,8 @@
 
                 <!-- UPLOAD/NOTES FIELD (MOVED UP) -->
                 <div class="pt-6">
-                    <label for="upload_notes" class="block text-sm font-medium text-gray-700">Additional Review Notes (Link to uploaded file OR final comments)</label>
-                    <p class="text-xs text-gray-500 mb-1 italic">Use this field for any final thoughts or to paste a link to your separate review notes file.</p>
+                    <label for="upload_notes" class="block text-sm font-medium text-gray-700">Additional Review Notes (if available)</label>
+                    <p class="text-xs text-gray-500 mb-1 italic">Use this field for any final thoughts or review notes file.</p>
                     <textarea id="upload_notes" name="upload_notes" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500"></textarea>
                 </div>
                 
@@ -274,7 +274,7 @@
                     </div>
                     <div>
                         <!-- FINAL DATE FIELD - KEPT -->
-                        <label for="review_date_final" class="block text-sm font-medium text-gray-700">Date (Final)</label>
+                        <label for="review_date_final" class="block text-sm font-medium text-gray-700">Date</label>
                         <input type="date" id="review_date_final" name="review_date_final" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500">
                     </div>
                 </div>
@@ -456,10 +456,10 @@
                 });
 
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Review to Google Sheets';
+                submitBtn.textContent = 'Submit Review';
                 messageEl.classList.remove('text-blue-600');
                 messageEl.classList.add('text-green-600');
-                messageEl.textContent = '✅ Review submitted successfully! Your data is now in Google Sheets.';
+                messageEl.textContent = '✅ Review submitted successfully! Your data is now with us.';
 
                 // Optional: Reset form fields after submission
                 document.getElementById('fullReviewForm').reset();
@@ -487,4 +487,5 @@
     </script>
 </body>
 </html>
+
 
