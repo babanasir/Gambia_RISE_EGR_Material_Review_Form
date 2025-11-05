@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
-        /* Custom Checkbox Styling */
+        /* Custom Checkbox Styling (still here in case of future use, but not for Section 2) */
         input[type="checkbox"] {
             -webkit-appearance: none; -moz-appearance: none; appearance: none; display: inline-block;
             width: 1.25rem; height: 1.25rem; border: 2px solid #3b82f6; border-radius: 0.25rem;
@@ -66,8 +66,8 @@
                         <option value="Jola">Jola</option>
                         <option value="Mandinka">Mandinka</option>
                         <option value="Manjaku">Manjaku</option>
-                        <option value="Serahule">Serahule</option>
-                        <option value="Sererre">Sererre</option>
+                        <option value="Serahuleh">Serahuleh</option>
+                        <option value="Seereer">Seereer</option>
                         <option value="Olof">Olof</option>
                     </select>
                 </div>
@@ -77,8 +77,8 @@
                     <label for="gradeLevel" class="block text-sm font-medium text-gray-700 mb-1">Grade / Level</label>
                     <select id="gradeLevel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
                         <option value="" disabled selected>Select Grade</option>
-                        <option value="ECD 1">ECD 1</option>
                         <option value="ECD 2">ECD 2</option>
+                        <option value="ECD 3">ECD 3</option>
                         <option value="Grade 1">Grade 1</option>
                     </select>
                 </div>
@@ -91,7 +91,7 @@
                 </p>
 
                 <a id="documentLinkButton" href="#" target="_blank" class="hidden mt-3 inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 active:scale-95">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 0 00-2 2v10a2 0 002 2h10a2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     View/Review Document: <span id="documentName" class="ml-2 font-bold"></span>
                 </a>
             </div>
@@ -128,38 +128,10 @@
                         <input type="url" id="doc_link" name="doc_link" readonly class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border bg-gray-200">
                     </div>
 
-                    <!-- Hidden fields to explicitly pass selected values -->
-                    <input type="hidden" id="doc_type_hidden" name="doc_type">
-                    <input type="hidden" id="language_hidden" name="language">
-                    <input type="hidden" id="grade_hidden" name="grade">
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Review Stage (Multiple Choice)</label>
-                            <div class="flex flex-wrap gap-6">
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="review_stage" value="Revised Draft" class="form-radio h-4 w-4 text-blue-600 border-gray-300">
-                                    <span class="ml-2">Revised Draft</span>
-                                </label>
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="review_stage" value="Final Review" class="form-radio h-4 w-4 text-blue-600 border-gray-300">
-                                    <span class="ml-2">Final Review</span>
-                                </label>
-                            </div>
-                        </div>
-                         <!-- New field for offline review uploads -->
-                        <div>
-                            <label for="reviewed_draft_file" class="block text-sm font-medium text-gray-700">Upload Reviewed/Annotated Draft (Optional)</label>
-                            <p class="text-xs text-red-500">NOTE: File uploads must be handled separately via Google Drive or another service if not using Firebase.</p>
-                            <input type="file" id="reviewed_draft_file" name="reviewed_draft_file" class="mt-1 block w-full text-sm text-gray-500
-                                file:mr-4 file:py-2 file:px-4
-                                file:rounded-full file:border-0
-                                file:text-sm file:font-semibold
-                                file:bg-red-50 file:text-red-700
-                                hover:file:bg-red-100
-                            "/>
-                        </div>
-                    </div>
+                    <!-- Hidden fields for selected values (names match FIELD_MAP keys) -->
+                    <input type="hidden" id="doc_type" name="doc_type">
+                    <input type="hidden" id="language" name="language">
+                    <input type="hidden" id="grade" name="grade">
                 </div>
             </section>
 
@@ -181,19 +153,19 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Aligns with MoBSE national curriculum standards</td>
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Q1. Aligns with MoBSE national curriculum standards</td>
                                 <td class="text-center"><input type="radio" name="q1_aligns_standards" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="q1_aligns_standards" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="q1_aligns_standards" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="q1_aligns_standards" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
-                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Reflects MoBSE-approved scope and sequence</td>
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Q2. Reflects MoBSE-approved scope and sequence</td>
                                 <td class="text-center"><input type="radio" name="q2_scope_sequence" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="q2_scope_sequence" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="q2_scope_sequence" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="q2_scope_sequence" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
-                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Supports foundational learning outcomes for literacy</td>
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Q3. Supports foundational learning outcomes for literacy</td>
                                 <td class="text-center"><input type="radio" name="q3_literacy_outcomes" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="q3_literacy_outcomes" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="q3_literacy_outcomes" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
@@ -209,14 +181,51 @@
 
             <hr class="my-8">
 
-            <!-- SECTION 2: LINGUISTIC AND PEDAGOGICAL QUALITY -->
-            <section class="mb-8 space-y-6">
+            <!-- SECTION 2: LINGUISTIC AND PEDAGOGICAL QUALITY (UPDATED TO RADIO BUTTONS) -->
+            <section class="mb-8">
                 <h3 class="text-xl font-semibold text-gray-700 bg-blue-100 p-2 rounded-md">SECTION 2: LINGUISTIC AND PEDAGOGICAL QUALITY</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3" id="section2_checks">
-                    <label class="inline-flex items-start"><input type="checkbox" name="sec2_q_orthography" class="mr-2 mt-1"> <span>Uses correct orthography and spelling</span></label>
-                    <label class="inline-flex items-start"><input type="checkbox" name="sec2_q_complexity" class="mr-2 mt-1"> <span>Text complexity matches the intended reading level</span></label>
-                    <label class="inline-flex items-start"><input type="checkbox" name="sec2_q_progression" class="mr-2 mt-1"> <span>Progression is gradual</span></label>
-                    <label class="inline-flex items-start"><input type="checkbox" name="sec2_q_repetition" class="mr-2 mt-1"> <span>Repetition and pattern support emerging readers</span></label>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">Criterion</th>
+                                <th class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Yes</th>
+                                <th class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Partial</th>
+                                <th class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                <th class="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">N/A</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <!-- Item 1: Orthography -->
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Uses correct orthography and spelling for the target language</td>
+                                <td class="text-center"><input type="radio" name="sec2_q_orthography" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_orthography" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_orthography" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_orthography" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
+                            </tr>
+                            <!-- Item 2: Complexity -->
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Text complexity matches the intended reading level per leveling guide</td>
+                                <td class="text-center"><input type="radio" name="sec2_q_complexity" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_complexity" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_complexity" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_complexity" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
+                            </tr>
+                            <!-- Item 3: Progression -->
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Progression is gradual within and across grade 1</td>
+                                <td class="text-center"><input type="radio" name="sec2_q_progression" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_progression" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_progression" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_progression" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
+                            </tr>
+                            <!-- Item 4: Repetition -->
+                            <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Repetition and pattern support emerging readers (early levels)</td>
+                                <td class="text-center"><input type="radio" name="sec2_q_repetition" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_repetition" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_repetition" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
+                                <td class="text-center"><input type="radio" name="sec2_q_repetition" value="N/A" class="form-radio h-4 w-4 text-blue-600"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <div class="mt-8">
@@ -226,7 +235,7 @@
             </section>
 
             <hr class="my-8">
-            
+
             <!-- SECTION 8: OVERALL ASSESSMENT -->
             <section class="mb-8 space-y-6">
                 <h3 class="text-xl font-semibold text-gray-700 bg-blue-100 p-2 rounded-md">SECTION 8: OVERALL ASSESSMENT</h3>
@@ -250,6 +259,13 @@
                         <label class="block"><input type="radio" name="recommendation" value="REVISE AND RESUBMIT" class="form-radio h-4 w-4 text-blue-600"> <span class="ml-2 font-medium">REVISE AND RESUBMIT</span></label>
                         <label class="block"><input type="radio" name="recommendation" value="REJECT" class="form-radio h-4 w-4 text-blue-600"> <span class="ml-2 font-medium">REJECT</span></label>
                     </div>
+                </div>
+
+                <!-- UPLOAD/NOTES FIELD (MOVED UP) -->
+                <div class="pt-6">
+                    <label for="upload_notes" class="block text-sm font-medium text-gray-700">Additional Review Notes (Link to uploaded file OR final comments)</label>
+                    <p class="text-xs text-gray-500 mb-1 italic">Use this field for any final thoughts or to paste a link to your separate review notes file.</p>
+                    <textarea id="upload_notes" name="upload_notes" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500"></textarea>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -279,68 +295,55 @@
         // --- Document Link Mapping (MUST BE CONFIGURED) ---
         // The key is a concatenation of DocType_Language_GradeLevel.
         const DOCUMENT_LINKS = {
+            // Updated example keys with new language/grade names
             "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_1_HERE" },
-            "Pupil Book_Pulaar_ECD 1": { name: "ECD 1 Pulaar Pupil Book (Draft 1)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE" },
-            "Supplementary Material_Jola_ECD 2": { name: "ECD 2 Jola Supplementary Material (Final)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE" },
+            "Pupil Book_Pulaar_ECD 2": { name: "ECD 2 Pulaar Pupil Book (Draft 1)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE" },
+            "Supplementary Material_Jola_ECD 3": { name: "ECD 3 Jola Supplementary Material (Final)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE" },
             // Add all your document mappings here using the full text of the options:
-            // "Teacher Guide_Mandinka_Grade 1": { name: "Grade 1 Mandinka Teacher Guide", url: "https://docs.google.com/document/d/..." },
+            // "Teacher Guide_Serahuleh_Grade 1": { name: "Grade 1 Serahuleh TG", url: "https://docs.google.com/document/d/..." },
             
             "default": { name: "Document Not Mapped", url: "#" }
         };
 
         // --- GOOGLE FORM CONFIGURATION (REQUIRED FOR SUBMISSION) ---
-        // *** IMPORTANT: REPLACE THESE PLACEHOLDERS WITH YOUR ACTUAL GOOGLE FORM ENDPOINT AND FIELD IDs (Step 3 below) ***
-
         const GOOGLE_FORM_CONFIG = {
-            // Replace this URL with the actual 'action' attribute from your published Google Form's source code
-            FORM_ACTION_URL: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd79ZWIeAlxKVw9cdYKIbllzjw1Wsmr8sd1y9i9nBU2--pVMg/formResponse",
+            // Submission Endpoint URL
+            FORM_ACTION_URL: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSd79ZWIeAlxKVw9cdKkIBLlLJzW1smr8sd1y9i9nBU2--pVMg/formResponse', 
             
-            // Map HTML element names to their corresponding Google Form entry IDs
-// (verified from the live Google Form source)
-FIELD_MAP: {
-    // ======================
-    // Metadata
-    // ======================
-    'reviewer': 'entry.501421866',
-    'date': 'entry.1415071408',
-    'doc_title': 'entry.1160036641',
-    'doc_link': 'entry.1534057697',
-    'doc_type': 'entry.92921510',
-    'language': 'entry.1587674303',
-    'grade': 'entry.67305416',
-    // Note: 'review_stage' removed (no longer applicable; replaced by final notes upload)
-    
-    // ======================
-    // Section 1: Alignment (Radio buttons)
-    // ======================
-    'q1_aligns_standards': 'entry.539803406',
-    'q2_scope_sequence': 'entry.965438771',
-    'q3_literacy_outcomes': 'entry.1799100480',
-    'comments_section1': 'entry.810893531',
-    
-    // ======================
-    // Section 2: Quality (Checkboxes)
-    // ======================
-    // Note: your Form groups all linguistic quality checks under one multi-checkbox field.
-    'sec2_q_orthography': 'entry.1491998529',
-    'comments_section2': 'entry.1223718199',
-    
-    // ======================
-    // Section 3: Overall Assessment
-    // ======================
-    'strengths': 'entry.229083217',
-    'priority_actions': 'entry.735741345',
-    'recommendation': 'entry.581749815',
-    'reviewer_signature': 'entry.479553913',
-    'review_date_final': 'entry.1730871200',
+            // Map HTML element names (KEY) to their corresponding Google Form entry IDs (VALUE)
+            FIELD_MAP: {
+                // Metadata
+                'doc_type': 'entry.92921510', 
+                'language': 'entry.1587674303', 
+                'grade': 'entry.67305416', 
+                'reviewer': 'entry.501421866', 
+                'date': 'entry.1415071408', 
+                'doc_title': 'entry.1160036641', 
+                'doc_link': 'entry.1534057697', 
 
-    // ======================
-    // Section 4: Additional Upload (Review Notes)
-    // ======================
-    'upload_notes': 'entry.1006078606'
-}
+                // Section 1: Alignment (Radio buttons)
+                'q1_aligns_standards': 'entry.539803406',
+                'q2_scope_sequence': 'entry.965438771',
+                'q3_literacy_outcomes': 'entry.1799100480',
+                'comments_section1': 'entry.810893531',
 
-};
+                // Section 2: Quality (Radio buttons - Names match the configured Entry IDs)
+                'sec2_q_orthography': 'entry.461809805', // Uses correct orthography/spelling
+                'sec2_q_complexity': 'entry.2089022497', // Text complexity matches level
+                'sec2_q_progression': 'entry.1170758486', // Progression is gradual
+                'sec2_q_repetition': 'entry.1853297681', // Repetition and pattern support
+                'comments_section2': 'entry.1223718199', // Comments/Action Required
+
+                // Section 8: Overall Assessment
+                'strengths': 'entry.229083217',
+                'priority_actions': 'entry.735741345',
+                'recommendation': 'entry.581749815', 
+                'upload_notes': 'entry.1006078606', // Additional Review Notes (Link/Comments)
+                'reviewer_signature': 'entry.479553913',
+                'review_date_final': 'entry.1730871200'
+            }
+        };
+
 
         const docTypeSelect = document.getElementById('docType');
         const languageSelect = document.getElementById('language');
@@ -372,13 +375,16 @@ FIELD_MAP: {
 
                 document.getElementById('doc_title').value = docInfo.name;
                 document.getElementById('doc_link').value = docInfo.url === "#" ? "Link not configured" : docInfo.url;
-                document.getElementById('doc_type_hidden').value = docType;
-                document.getElementById('language_hidden').value = language;
-                document.getElementById('grade_hidden').value = gradeLevel;
+                
+                // Set values for the hidden metadata fields
+                document.getElementById('doc_type').value = docType;
+                document.getElementById('language').value = language;
+                document.getElementById('grade').value = gradeLevel;
 
                 // Set today's date for convenience
-                document.getElementById('date').value = new Date().toISOString().substring(0, 10);
-                document.getElementById('review_date_final').value = new Date().toISOString().substring(0, 10);
+                const today = new Date().toISOString().substring(0, 10);
+                document.getElementById('date').value = today;
+                document.getElementById('review_date_final').value = today;
 
             } else {
                 documentLinkButton.classList.add('hidden');
@@ -389,7 +395,7 @@ FIELD_MAP: {
             }
         }
 
-        // --- Functional Submission Logic (Needs Google Form IDs) ---
+        // --- Functional Submission Logic (Uses Configured Google Form IDs) ---
         async function submitReview(event) {
             event.preventDefault();
             const submitBtn = document.getElementById('submit-button');
@@ -402,14 +408,6 @@ FIELD_MAP: {
                 messageEl.classList.add('text-red-600');
                 return;
             }
-            
-            // Check if configuration is missing
-            if (GOOGLE_FORM_CONFIG.FORM_ACTION_URL === 'REPLACE_WITH_YOUR_GOOGLE_FORM_SUBMISSION_ENDPOINT') {
-                 messageEl.textContent = 'Configuration Error: Please update FORM_ACTION_URL in the script block.';
-                 messageEl.classList.remove('text-blue-600', 'text-green-600');
-                 messageEl.classList.add('text-red-600');
-                 return;
-            }
 
             // 2. Set UI to Loading State
             submitBtn.disabled = true;
@@ -421,37 +419,33 @@ FIELD_MAP: {
             // 3. Prepare Form Data for Submission
             const data = new URLSearchParams();
             const formElements = document.getElementById('fullReviewForm').elements;
-            let submissionData = {};
             
             for (let i = 0; i < formElements.length; i++) {
                 const element = formElements[i];
                 const entryId = GOOGLE_FORM_CONFIG.FIELD_MAP[element.name];
 
-                if (!element.name || !entryId) continue;
+                // Skip elements that don't have a mapped entry ID, are disabled, or are file inputs
+                if (!element.name || !entryId || element.type === 'file') continue;
+
 
                 let value = null;
 
                 if (element.type === 'radio' && element.checked) {
                     value = element.value;
                 } else if (element.type === 'checkbox') {
-                    // Checkboxes must be submitted with a value (like 'Yes') if checked, or omitted if unchecked.
+                    // Checkboxes submit the value only if checked (e.g. for potential future use)
                     if (element.checked) {
-                        value = 'Yes';
+                        value = element.value; 
                     } else {
                         value = null; 
                     }
-                } else if (element.type !== 'radio' && element.type !== 'checkbox' && element.value) {
+                } else if (element.type !== 'radio' && element.value) {
                     value = element.value;
                 }
                 
                 if (value !== null) {
-                    submissionData[entryId] = value;
+                    data.append(entryId, value);
                 }
-            }
-            
-            // Convert submissionData object to URL-encoded string for POST body
-            for (const key in submissionData) {
-                data.append(key, submissionData[key]);
             }
 
             // 4. Send Data to Google Form Endpoint
@@ -471,7 +465,8 @@ FIELD_MAP: {
 
                 // Optional: Reset form fields after submission
                 document.getElementById('fullReviewForm').reset();
-                
+                checkSelections(); // Re-run to update the pre-filled date and document details
+
             } catch (error) {
                 console.error('Submission Error:', error);
                 submitBtn.disabled = false;
@@ -494,4 +489,3 @@ FIELD_MAP: {
     </script>
 </body>
 </html>
-
