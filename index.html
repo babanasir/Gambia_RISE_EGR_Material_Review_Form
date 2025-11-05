@@ -40,11 +40,9 @@
             <p class="text-gray-600">First, select the parameters to load the correct document.</p>
         </header>
 
-        <!-- Document Selector Section -->
         <section id="selection-form" class="space-y-6 mb-10 p-6 bg-gray-50 rounded-lg shadow-inner">
             <h2 class="text-xl font-bold text-gray-700 mb-4">1. Document Selection</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Document Type Selection -->
                 <div>
                     <label for="docType" class="block text-sm font-medium text-gray-700 mb-1">Document Type</label>
                     <select id="docType" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
@@ -56,7 +54,6 @@
                     </select>
                 </div>
 
-                <!-- Language Selection -->
                 <div>
                     <label for="language" class="block text-sm font-medium text-gray-700 mb-1">Language</label>
                     <select id="language" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
@@ -72,7 +69,6 @@
                     </select>
                 </div>
 
-                <!-- Grade/Level Selection -->
                 <div>
                     <label for="gradeLevel" class="block text-sm font-medium text-gray-700 mb-1">Grade / Level</label>
                     <select id="gradeLevel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
@@ -84,7 +80,6 @@
                 </div>
             </div>
 
-            <!-- Dynamic Link Output -->
             <div id="linkContainer" class="text-center p-4 bg-blue-100 rounded-lg border border-blue-300 mt-6">
                 <p id="statusMessage" class="text-lg text-blue-800 font-semibold">
                     Please make all three selections above.
@@ -98,21 +93,17 @@
         </section>
 
 
-        <!-- Full Review Checklist Form (HIDDEN BY DEFAULT) -->
         <form id="fullReviewForm" class="hidden mt-8">
             <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">2. Document Review Checklist</h2>
 
-            <!-- Metadata Section 1 -->
             <section class="mb-8 space-y-4 p-4 border rounded-lg bg-yellow-50">
                 <h3 class="text-lg font-semibold text-gray-700 mb-4">Review Metadata (Pre-populated Fields)</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Date input was removed here to prevent duplicate date column -->
                     <div>
                         <label for="reviewer" class="block text-sm font-medium text-gray-700">Name of Reviewer</label>
                         <input type="text" id="reviewer" name="reviewer" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <!-- Empty div to maintain grid layout, or remove md:grid-cols-2 -->
                     <div></div> 
                 </div>
 
@@ -127,7 +118,6 @@
                         <input type="url" id="doc_link" name="doc_link" readonly class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border bg-gray-200">
                     </div>
 
-                    <!-- Hidden fields for selected values (names match FIELD_MAP keys) -->
                     <input type="hidden" id="doc_type" name="doc_type">
                     <input type="hidden" id="language" name="language">
                     <input type="hidden" id="grade" name="grade">
@@ -136,8 +126,6 @@
 
             <hr class="my-8">
 
-            <!-- CHECKLIST SECTIONS (Sections 1-8) -->
-            <!-- SECTION 1: ALIGNMENT WITH STANDARDS -->
             <section class="mb-8">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4 bg-blue-100 p-2 rounded-md">SECTION 1: ALIGNMENT WITH STANDARDS</h3>
                 <div class="overflow-x-auto">
@@ -180,7 +168,6 @@
 
             <hr class="my-8">
 
-            <!-- SECTION 2: LINGUISTIC AND PEDAGOGICAL QUALITY (UPDATED TO RADIO BUTTONS) -->
             <section class="mb-8">
                 <h3 class="text-xl font-semibold text-gray-700 bg-blue-100 p-2 rounded-md">SECTION 2: LINGUISTIC AND PEDAGOGICAL QUALITY</h3>
                 <div class="overflow-x-auto">
@@ -195,28 +182,24 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <!-- Item 1: Orthography -->
                             <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Uses correct orthography and spelling</td>
                                 <td class="text-center"><input type="radio" name="sec2_q_orthography" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_orthography" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_orthography" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_orthography" value="Not Applicable" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
-                            <!-- Item 2: Complexity -->
                             <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Text complexity matches the intended reading level</td>
                                 <td class="text-center"><input type="radio" name="sec2_q_complexity" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_complexity" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_complexity" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_complexity" value="Not Applicable" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
-                            <!-- Item 3: Progression -->
                             <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Progression is gradual</td>
                                 <td class="text-center"><input type="radio" name="sec2_q_progression" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_progression" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_progression" value="No" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_progression" value="Not Applicable" class="form-radio h-4 w-4 text-blue-600"></td>
                             </tr>
-                            <!-- Item 4: Repetition -->
                             <tr class="hover:bg-blue-50"><td class="p-3 text-sm font-medium text-gray-900">Repetition and pattern support emerging readers</td>
                                 <td class="text-center"><input type="radio" name="sec2_q_repetition" value="Yes" class="form-radio h-4 w-4 text-blue-600"></td>
                                 <td class="text-center"><input type="radio" name="sec2_q_repetition" value="Partial" class="form-radio h-4 w-4 text-blue-600"></td>
@@ -235,7 +218,6 @@
 
             <hr class="my-8">
 
-            <!-- SECTION 8: OVERALL ASSESSMENT -->
             <section class="mb-8 space-y-6">
                 <h3 class="text-xl font-semibold text-gray-700 bg-blue-100 p-2 rounded-md">SECTION 8: OVERALL ASSESSMENT</h3>
                 
@@ -260,7 +242,6 @@
                     </div>
                 </div>
 
-                <!-- UPLOAD/NOTES FIELD (MOVED UP) -->
                 <div class="pt-6">
                     <label for="upload_notes" class="block text-sm font-medium text-gray-700">Additional Review Notes (if available)</label>
                     <p class="text-xs text-gray-500 mb-1 italic">Use this field for any final thoughts or review notes file.</p>
@@ -273,7 +254,6 @@
                         <input type="text" id="reviewer_signature" name="reviewer_signature" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <div>
-                        <!-- FINAL DATE FIELD - KEPT -->
                         <label for="review_date_final" class="block text-sm font-medium text-gray-700">Date</label>
                         <input type="date" id="review_date_final" name="review_date_final" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500">
                     </div>
@@ -296,7 +276,7 @@
         // The key is a concatenation of DocType_Language_GradeLevel.
         const DOCUMENT_LINKS = {
             // Updated example keys with new language/grade names
-            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "https://docs.google.com/document/d/1djFgckcae_FGfnjauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true" },
+            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "https://docs.google.com/document/d/1djFgckcae_FGfnauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true" },
             "Pupil Book_Pulaar_ECD 2": { name: "ECD 2 Pulaar Pupil Book (Draft 1)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE" },
             "Supplementary Material_Jola_ECD 3": { name: "ECD 3 Jola Supplementary Material (Final)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE" },
             // Add all your document mappings here using the full text of the options:
@@ -307,39 +287,39 @@
 
         // --- GOOGLE FORM CONFIGURATION (REQUIRED FOR SUBMISSION) ---
         const GOOGLE_FORM_CONFIG = {
-            // Submission Endpoint URL (FIXED: Using the user's provided ID and the correct 'formResponse' endpoint)
-            FORM_ACTION_URL: 'https://docs.google.com/forms/d/e/1-8LZ7dnaiAsD1dOnRmTCaKk50QNnrFvdAlaYQpTP51Y/formResponse', 
+            // ✅ UPDATED Action URL (from your HTML dump)
+            FORM_ACTION_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSd79ZWIeAlxKVw9cdYKIbllzjw1Wsmr8sd1y9i9nBU2--pVMg/formResponse', 
             
-            // Map HTML element names (KEY) to their corresponding Google Form entry IDs (VALUE)
+            // ✅ ALL IDs ARE NOW CONFIRMED
             FIELD_MAP: {
-                // Metadata
-                'doc_type': 'entry.92921510', 
-                'language': 'entry.1587674303', 
-                'grade': 'entry.67305416', 
-                'reviewer': 'entry.501421866', 
-                'doc_title': 'entry.1160036641', 
-                'doc_link': 'entry.1534057697', 
+                // Metadata (✅ CONFIRMED)
+                'doc_type': 'entry.92921510',             
+                'language': 'entry.1587674303',           
+                'grade': 'entry.67305416',                
+                'reviewer': 'entry.501421866',            
+                'doc_title': 'entry.1160036641',          
+                'doc_link': 'entry.1534057697',           
 
-                // Section 1: Alignment (Radio buttons)
-                'q1_aligns_standards': 'entry.539803406',
-                'q2_scope_sequence': 'entry.965438771',
-                'q3_literacy_outcomes': 'entry.1799100480',
-                'comments_section1': 'entry.810893531',
+                // Section 1: Alignment (✅ CONFIRMED)
+                'q1_aligns_standards': 'entry.539803406',    
+                'q2_scope_sequence': 'entry.965438771',      
+                'q3_literacy_outcomes': 'entry.1799100480',  
+                'comments_section1': 'entry.810893531',      
 
-                // Section 2: Quality (Radio buttons - Names match the configured Entry IDs)
-                'sec2_q_orthography': 'entry.461809805', // Uses correct orthography/spelling
-                'sec2_q_complexity': 'entry.2089022497', // Text complexity matches level
-                'sec2_q_progression': 'entry.1170758486', // Progression is gradual
-                'sec2_q_repetition': 'entry.1853297681', // Repetition and pattern support
-                'comments_section2': 'entry.1223718199', // Comments/Action Required
+                // Section 2: Quality (✅ CONFIRMED)
+                'sec2_q_orthography': 'entry.461809805',     
+                'sec2_q_complexity': 'entry.2089022497',   
+                'sec2_q_progression': 'entry.1170758486',    
+                'sec2_q_repetition': 'entry.1853297681',   
+                'comments_section2': 'entry.1223718199',   
 
-                // Section 8: Overall Assessment
-                'strengths': 'entry.229083217',
-                'priority_actions': 'entry.735741345',
-                'recommendation': 'entry.581749815', 
-                'upload_notes': 'entry.1006078606', // Additional Review Notes (Link/Comments)
-                'reviewer_signature': 'entry.479553913',
-                'review_date_final': 'entry.1730871200' // This is the date that remains
+                // Section 8 / "Section 3" (✅ CONFIRMED)
+                'strengths': 'entry.229083217',              // <-- ✅ CONFIRMED
+                'priority_actions': 'entry.735741345',       // <-- ✅ CONFIRMED
+                'recommendation': 'entry.581749815',         // <-- ✅ CONFIRMED
+                'upload_notes': 'entry.1006078606',        // <-- ✅ CONFIRMED
+                'reviewer_signature': 'entry.479553913',     // <-- ✅ CONFIRMED
+                'review_date_final': 'entry.1730871200'    // <-- ✅ CONFIRMED
             }
         };
 
@@ -420,6 +400,7 @@
             
             for (let i = 0; i < formElements.length; i++) {
                 const element = formElements[i];
+                // Use the new, corrected FIELD_MAP
                 const entryId = GOOGLE_FORM_CONFIG.FIELD_MAP[element.name];
 
                 // Skip elements that don't have a mapped entry ID, are disabled, or are file inputs
@@ -449,6 +430,8 @@
             // 4. Send Data to Google Form Endpoint
             try {
                 // Use mode: 'no-cors' to allow cross-origin POST requests to Google Forms
+                // This will ALWAYS look "successful" in the browser, even if Google rejects the data.
+                // That's why your entry IDs MUST be correct.
                 const response = await fetch(GOOGLE_FORM_CONFIG.FORM_ACTION_URL, {
                     method: 'POST',
                     mode: 'no-cors', 
@@ -459,7 +442,7 @@
                 submitBtn.textContent = 'Submit Review';
                 messageEl.classList.remove('text-blue-600');
                 messageEl.classList.add('text-green-600');
-                messageEl.textContent = '✅ Review submitted successfully! Your data is now with us.';
+                messageEl.textContent = '✅ Review submitted successfully!';
 
                 // Optional: Reset form fields after submission
                 document.getElementById('fullReviewForm').reset();
@@ -487,5 +470,3 @@
     </script>
 </body>
 </html>
-
-
