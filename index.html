@@ -91,7 +91,7 @@
                 </p>
 
                 <a id="documentLinkButton" href="#" target="_blank" class="hidden mt-3 inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 active:scale-95">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 0 00-2 2v10a2 0 002 2h10a2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 0 002 2h10a2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     View/Review Document: <span id="documentName" class="ml-2 font-bold"></span>
                 </a>
             </div>
@@ -107,7 +107,7 @@
                 <h3 class="text-lg font-semibold text-gray-700 mb-4">Review Metadata (Pre-populated Fields)</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Removed duplicate date input -->
+                    <!-- Date input was removed here to prevent duplicate date column -->
                     <div>
                         <label for="reviewer" class="block text-sm font-medium text-gray-700">Reviewer Name</label>
                         <input type="text" id="reviewer" name="reviewer" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:ring-blue-500 focus:border-blue-500">
@@ -296,7 +296,7 @@
         // The key is a concatenation of DocType_Language_GradeLevel.
         const DOCUMENT_LINKS = {
             // Updated example keys with new language/grade names
-            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "https://docs.google.com/document/d/1djFgckcae_FGfnjauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true" },
+            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_1_HERE" },
             "Pupil Book_Pulaar_ECD 2": { name: "ECD 2 Pulaar Pupil Book (Draft 1)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE" },
             "Supplementary Material_Jola_ECD 3": { name: "ECD 3 Jola Supplementary Material (Final)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE" },
             // Add all your document mappings here using the full text of the options:
@@ -307,8 +307,8 @@
 
         // --- GOOGLE FORM CONFIGURATION (REQUIRED FOR SUBMISSION) ---
         const GOOGLE_FORM_CONFIG = {
-            // Submission Endpoint URL
-            FORM_ACTION_URL: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSd79ZWIeAlxKVw9cdKkIBLlLJzW1smr8sd1y9i9nBU2--pVMg/formResponse', 
+            // Submission Endpoint URL (FIXED: Using the user's provided ID and the correct 'formResponse' endpoint)
+            FORM_ACTION_URL: 'https://docs.google.com/forms/d/e/1-8LZ7dnaiAsD1dOnRmTCaKk50QNnrFvdAlaYQpTP51Y/formResponse', 
             
             // Map HTML element names (KEY) to their corresponding Google Form entry IDs (VALUE)
             FIELD_MAP: {
@@ -317,7 +317,6 @@
                 'language': 'entry.1587674303', 
                 'grade': 'entry.67305416', 
                 'reviewer': 'entry.501421866', 
-                // REMOVED 'date': 'entry.1415071408', // This mapping is removed
                 'doc_title': 'entry.1160036641', 
                 'doc_link': 'entry.1534057697', 
 
