@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RISE Document Reviewer Dashboard</title>
+    <title>Gambia RISE Review Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -32,22 +32,22 @@
 <body class="p-4 sm:p-8">
 
     <div class="max-w-4xl mx-auto bg-white p-6 sm:p-10 shadow-xl rounded-xl">
+        
         <header class="mb-8 border-b pb-4">
-            <h1 class="text-3xl font-extrabold text-blue-900 mb-2">Review Material Selector</h1>
-            <p class="text-gray-600">First, select the parameters to load the correct document and review form.</p>
+            <h1 class="text-3xl font-extrabold text-blue-900 mb-2">Gambia RISE Foundational Literacy Project</h1>
+            <h2 class="text-xl font-semibold text-gray-700">EGR Expert Review Form</h2>
         </header>
-
         <section id="reviewer-instructions" class="mb-8 p-4 bg-yellow-50 border border-yellow-300 rounded-lg shadow">
             <h2 class="text-xl font-bold text-yellow-900 mb-3">🎯 Key Reviewer Instructions</h2>
             <ul class="list-disc list-outside space-y-2 pl-5 text-gray-700">
                 <li>
-                    [cite_start]<strong>Do NOT edit the document directly.</strong> All feedback <em>must</em> be provided using comments and guidance notes only. [cite: 31, 32] [cite_start]The materials writers will implement the changes. [cite: 33]
+                    <strong>Do NOT edit the document directly.</strong> All feedback must be provided using comments and guidance notes only. The materials writers will implement the changes.
                 </li>
                 <li>
-                    [cite_start]<strong>Focus on Key Criteria:</strong> Verify <strong>1) Linguistic Accuracy</strong> (correct orthography/spelling) [cite: 16, 35][cite_start], <strong>2) Pedagogical Quality</strong> (gradual progression, correct GPC sequence) [cite: 18, 35][cite_start], <strong>3) Cultural Relevance</strong> [cite: 35][cite_start], and <strong>4) Gender/Inclusion</strong> (e.g., 50/50 gender, 15% disability). [cite: 35]
+                    <strong>Focus on Key Criteria:</strong> Verify <strong>1) Linguistic Accuracy</strong> (correct orthography/spelling), <strong>2) Pedagogical Quality</strong> (gradual progression, correct GPC sequence), <strong>3) Cultural Relevance</strong>, and <strong>4) Gender/Inclusion</strong> (e.g., 50/50 gender, 15% disability).
                 </li>
                 <li>
-                    [cite_start]<strong>Provide a Final Recommendation:</strong> You must select an "Overall Recommendation" (Approve, Revise, etc.) [cite: 37, 38] [cite_start]and ensure the quality rating meets the minimums (<strong>80%</strong> for field testing, <strong>90%</strong> for final production). [cite: 44, 45]
+                    <strong>Provide a Final Recommendation:</strong> You must select an "Overall Recommendation" (Approve, Revise, etc.) and ensure the quality rating meets the minimums (<strong>80%</strong> for field testing, <strong>90%</strong> for final production).
                 </li>
             </ul>
             <div class="mt-4">
@@ -116,14 +116,15 @@
             </div>
         </section>
 
-        </div>
+
+    </div>
 
     <script>
         // --- Document Link Mapping (MUST BE CONFIGURED) ---
         // The key is a concatenation of DocType_Language_GradeLevel.
         const DOCUMENT_LINKS = {
             // Updated example keys with new language/grade names
-            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "https://docs.google.com/document/d/1djFgckcae_FGfnauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true" },
+            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "httpsMusic:youtube.com/watch?v=1djFgckcae_FGfnauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true" },
             "Pupil Book_Pulaar_ECD 2": { name: "ECD 2 Pulaar Pupil Book (Draft 1)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE" },
             "Supplementary Material_Jola_ECD 3": { name: "ECD 3 Jola Supplementary Material (Final)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE" },
             // Add all your document mappings here using the full text of the options:
@@ -131,8 +132,6 @@
             
             "default": { name: "Document Not Mapped", url: "#" }
         };
-
-        // --- All Google Form Config and Submission Logic has been removed ---
 
         const docTypeSelect = document.getElementById('docType');
         const languageSelect = document.getElementById('language');
@@ -185,8 +184,6 @@
             select.addEventListener('change', checkSelections);
         });
         
-        // Removed submit listener
-
         // Initial check on load
         checkSelections();
     </script>
