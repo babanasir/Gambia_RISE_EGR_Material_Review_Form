@@ -57,7 +57,7 @@
             </div>
         </section>
         <section id="selection-form" class="space-y-6 mb-10 p-6 bg-gray-50 rounded-lg shadow-inner">
-            <h2 class="text-xl font-bold text-gray-700 mb-4">Document Selection</h2>
+            <h2 class="text-xl font-bold text-gray-700 mb-4">1. Document Selection</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                     <label for="docType" class="block text-sm font-medium text-gray-700 mb-1">Document Type</label>
@@ -115,16 +115,30 @@
                 </a>
             </div>
         </section>
-
-
-    </div>
-
-    <script>
+        <hr class="my-10 border-t-2 border-gray-100">
+        <section id="dashboard-embed" class="mt-10">
+            <h2 class="text-3xl font-extrabold text-blue-900 mb-4">
+                📊 Live Expert Review Dashboard
+            </h2>
+            <p class="text-gray-600 mb-6">
+                This dashboard shows the live status of all reviews submitted via the Google Form.
+            </p>
+            
+            <div class="bg-white shadow-xl rounded-xl border border-gray-200 overflow-hidden">
+                <iframe 
+                    id="dashboard-frame"
+                    src="https://babanasir.github.io/rise-dashboard/review_dashboard.html"
+                    class="w-full h-[800px] border-0"
+                    title="RISE External Review Tracking Dashboard">
+                </iframe>
+            </div>
+        </section>
+        </div> <script>
         // --- Document Link Mapping (MUST BE CONFIGURED) ---
         // The key is a concatenation of DocType_Language_GradeLevel.
         const DOCUMENT_LINKS = {
             // Updated example keys with new language/grade names
-            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "httpsMusic:youtube.com/watch?v=1djFgckcae_FGfnauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true" },
+            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "https://docs.google.com/document/d/1djFgckcae_FGfnauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true" },
             "Pupil Book_Pulaar_ECD 2": { name: "ECD 2 Pulaar Pupil Book (Draft 1)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE" },
             "Supplementary Material_Jola_ECD 3": { name: "ECD 3 Jola Supplementary Material (Final)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE" },
             // Add all your document mappings here using the full text of the options:
