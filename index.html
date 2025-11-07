@@ -10,15 +10,15 @@
         body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
         
         /* Dynamic Link Button Styles */
-        #documentLinkButton, #googleFormLinkButton {
+        #viewLinkButton, #downloadLinkButton, #googleFormLinkButton {
             transition: all 0.3s ease; transform: scale(1); opacity: 0.5; cursor: not-allowed; filter: grayscale(100%);
         }
-        #documentLinkButton.active, #googleFormLinkButton.active {
+        #viewLinkButton.active, #downloadLinkButton.active, #googleFormLinkButton.active {
             opacity: 1; cursor: pointer; transform: scale(1.05); filter: grayscale(0%);
         }
         
         /* Add pulse animation to the primary link */
-        #documentLinkButton.active {
+        #viewLinkButton.active {
             animation: pulse 2s infinite;
         }
 
@@ -101,10 +101,16 @@
                     Please make all three selections above.
                 </p>
 
-                <a id="documentLinkButton" href="#" target="_blank" download
+                <a id="viewLinkButton" href="#" target="_blank"
                    class="hidden mt-3 inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 active:scale-95">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Click to View: <span id="documentNameView" class="ml-2 font-bold"></span>
+                </a>
+
+                <a id="downloadLinkButton" href="#" download
+                   class="hidden mt-3 inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-gray-700 hover:bg-gray-800 shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-500 focus:ring-opacity-50 active:scale-95">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    Download: <span id="documentName" class="ml-2 font-bold"></span>
+                    Download PDF: <span id="documentNameDownload" class="ml-2 font-bold"></span>
                 </a>
 
                 <a id="googleFormLinkButton" href="https://docs.google.com/forms/d/e/1FAIpQLSd79ZWIeAlxKVw9cdYKIbllzjw1Wsmr8sd1y9i9nBU2--pVMg/viewform"
@@ -113,6 +119,14 @@
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 className" 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                     Open Review Form
                 </a>
+
+                <div id="liveLinkContainer" class="hidden mt-6 pt-4 border-t border-blue-200">
+                    <label class="block text-sm font-medium text-gray-700 mb-1 text-left">Document Live Link:</label>
+                    <div class="flex items-center space-x-2">
+                        <input type="text" id="liveLinkDisplay" readonly class="w-full p-2 border border-gray-300 rounded-lg bg-gray-100 text-sm text-gray-700">
+                        <button id="copyLinkButton" class="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg hover:bg-blue-200 text-sm whitespace-nowrap">Copy</button>
+                    </div>
+                </div>
             </div>
         </section>
         <hr class="my-10 border-t-2 border-gray-100">
@@ -137,25 +151,51 @@
         // --- Document Link Mapping (MUST BE CONFIGURED) ---
         // The key is a concatenation of DocType_Language_GradeLevel.
         const DOCUMENT_LINKS = {
-            // Updated example keys with new language/grade names
-            "Teacher Guide_English_Grade 1": { name: "Grade 1 English Teacher Guide (Draft 2)", url: "https://docs.google.com/document/d/1djFgckcae_FGfnauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true" },
-            "Pupil Book_Pulaar_ECD 2": { name: "ECD 2 Pulaar Pupil Book (Draft 1)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE" },
-            "Supplementary Material_Jola_ECD 3": { name: "ECD 3 Jola Supplementary Material (Final)", url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE" },
-            // Add all your document mappings here using the full text of the options:
-            // "Teacher Guide_Serahuleh_Grade 1": { name: "Grade 1 Serahuleh TG", url: "https://docs.google.com/document/d/..." },
+            // Updated example keys with new structure
+            "Teacher Guide_English_Grade 1": { 
+                name: "Grade 1 English Teacher Guide (Draft 2)", 
+                live_url: "https://docs.google.com/document/d/1djFgckcae_FGfnauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "PLACEHOLDER_PDF_LINK_1.pdf" 
+            },
+            "Pupil Book_Pulaar_ECD 2": { 
+                name: "ECD 2 Pulaar Pupil Book (Draft 1)", 
+                live_url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE",
+                pdf_url: "PLACEHOLDER_PDF_LINK_2.pdf"
+            },
+            "Supplementary Material_Jola_ECD 3": { 
+                name: "ECD 3 Jola Supplementary Material (Final)", 
+                live_url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE",
+                pdf_url: "PLACEHOLDER_PDF_LINK_3.pdf"
+            },
+            // Add all your document mappings here
             
-            "default": { name: "Document Not Mapped", url: "#" }
+            "default": { 
+                name: "Document Not Mapped", 
+                live_url: "#",
+                pdf_url: "#"
+            }
         };
 
+        // --- Get DOM Elements ---
         const docTypeSelect = document.getElementById('docType');
         const languageSelect = document.getElementById('language');
         const gradeLevelSelect = document.getElementById('gradeLevel');
-        const documentLinkButton = document.getElementById('documentLinkButton');
-        const googleFormLinkButton = document.getElementById('googleFormLinkButton'); // New button
-        const documentNameSpan = document.getElementById('documentName');
+        
+        const viewLinkButton = document.getElementById('viewLinkButton');
+        const downloadLinkButton = document.getElementById('downloadLinkButton');
+        const googleFormLinkButton = document.getElementById('googleFormLinkButton');
+        
+        const documentNameView = document.getElementById('documentNameView');
+        const documentNameDownload = document.getElementById('documentNameDownload');
+        
         const statusMessage = document.getElementById('statusMessage');
+        
+        const liveLinkContainer = document.getElementById('liveLinkContainer');
+        const liveLinkDisplay = document.getElementById('liveLinkDisplay');
+        const copyLinkButton = document.getElementById('copyLinkButton');
 
         const selectors = [docTypeSelect, languageSelect, gradeLevelSelect];
+        let currentLiveUrl = ''; // Variable to hold the current URL for the copy button
 
         // --- Core Logic for Selection and Form Reveal ---
         function checkSelections() {
@@ -167,36 +207,77 @@
                 const key = `${docType}_${language}_${gradeLevel}`;
                 const docInfo = DOCUMENT_LINKS[key] || DOCUMENT_LINKS['default'];
 
-                // Configure Document Download Link
-                documentNameSpan.textContent = docInfo.name;
-                documentLinkButton.href = docInfo.url;
-                documentLinkButton.setAttribute('download', docInfo.name + '.pdf'); // Adds download attribute
+                currentLiveUrl = docInfo.live_url; // Store URL for copy button
 
-                // Show both buttons
-                documentLinkButton.classList.remove('hidden');
-                documentLinkButton.classList.add('active');
+                // Configure View Link
+                documentNameView.textContent = docInfo.name;
+                viewLinkButton.href = docInfo.live_url;
+
+                // Configure Download Link
+                documentNameDownload.textContent = docInfo.name;
+                downloadLinkButton.href = docInfo.pdf_url;
+                downloadLinkButton.setAttribute('download', docInfo.name + '.pdf');
+
+                // Configure Live Link Display
+                liveLinkDisplay.value = docInfo.live_url;
+
+                // Show all buttons and the link display
+                viewLinkButton.classList.remove('hidden');
+                viewLinkButton.classList.add('active');
+                downloadLinkButton.classList.remove('hidden');
+                downloadLinkButton.classList.add('active');
                 googleFormLinkButton.classList.remove('hidden');
                 googleFormLinkButton.classList.add('active');
+                liveLinkContainer.classList.remove('hidden');
                 
                 statusMessage.classList.add('hidden');
 
             } else {
-                // Hide both buttons
-                documentLinkButton.classList.add('hidden');
-                documentLinkButton.classList.remove('active');
+                // Hide all buttons and the link display
+                viewLinkButton.classList.add('hidden');
+                viewLinkButton.classList.remove('active');
+                downloadLinkButton.classList.add('hidden');
+                downloadLinkButton.classList.remove('active');
                 googleFormLinkButton.classList.add('hidden');
                 googleFormLinkButton.classList.remove('active');
+                liveLinkContainer.classList.add('hidden');
 
                 // Show status message
                 statusMessage.classList.remove('hidden');
                 statusMessage.textContent = "Please make all three selections above to load the document link.";
+                currentLiveUrl = '';
             }
+        }
+
+        // --- Copy Button Logic ---
+        function copyLiveLink() {
+            if (!currentLiveUrl || currentLiveUrl === '#') return;
+
+            navigator.clipboard.writeText(currentLiveUrl).then(() => {
+                // Success feedback
+                copyLinkButton.textContent = 'Copied!';
+                copyLinkButton.classList.add('bg-green-200', 'text-green-800');
+                
+                setTimeout(() => {
+                    copyLinkButton.textContent = 'Copy';
+                    copyLinkButton.classList.remove('bg-green-200', 'text-green-800');
+                }, 2000);
+            }).catch(err => {
+                // Error feedback (rare)
+                console.error('Failed to copy: ', err);
+                copyLinkButton.textContent = 'Failed';
+                setTimeout(() => {
+                    copyLinkButton.textContent = 'Copy';
+                }, 2000);
+            });
         }
 
         // --- Initialization ---
         selectors.forEach(select => {
             select.addEventListener('change', checkSelections);
         });
+        
+        copyLinkButton.addEventListener('click', copyLiveLink);
         
         // Initial check on load
         checkSelections();
