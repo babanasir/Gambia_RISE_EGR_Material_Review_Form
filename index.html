@@ -290,28 +290,28 @@
             // ✅ UPDATED Action URL (from your HTML dump)
             FORM_ACTION_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSd79ZWIeAlxKVw9cdYKIbllzjw1Wsmr8sd1y9i9nBU2--pVMg/formResponse', 
             
-            // ✅ ALL IDs ARE NOW CONFIRMED
+            // ✅ ALL IDs ARE NOW CONFIRMED AND SYNTAX IS FIXED
             FIELD_MAP: {
                 // Metadata (✅ CONFIRMED)
-                'doc_type': 'entry.92921510',
-                'language': 'entry.1587674303',
-                'grade': 'entry.67305416',
-                'reviewer': 'entry.501421866',
-                'doc_title': 'entry.1160036641',
-                'doc_link': 'entry.1534057697',
+                'doc_type': 'entry.92921510',             
+                'language': 'entry.1587674303',           
+                'grade': 'entry.67305416',                
+                'reviewer': 'entry.501421866',            
+                'doc_title': 'entry.1160036641',          
+                'doc_link': 'entry.1534057697',           
 
                 // Section 1: Alignment (✅ CONFIRMED)
-                'q1_aligns_standards': 'entry.539803406',
-                'q2_scope_sequence': 'entry.965438771',
-                'q3_literacy_outcomes': 'entry.1799100480',
-                'comments_section1': 'entry.810893531',
+                'q1_aligns_standards': 'entry.539803406',    
+                'q2_scope_sequence': 'entry.965438771',      
+                'q3_literacy_outcomes': 'entry.1799100480',  
+                'comments_section1': 'entry.810893531',      
 
-                // Section 2: Quality (✅ CONFIRMED - Corrected Mapping)
-                'sec2_q_orthography': 'entry.461809805',     // 'Uses correct orthography...'
-                'sec2_q_complexity': 'entry.2089022497',   // 'Text complexity matches...'
-                'sec2_q_progression': 'entry.1170758486',    // 'Progression is gradual'
-                'sec2_q_repetition': 'entry.1853297681',   // 'Repetition and pattern...'
-                'comments_section2': 'entry.1223718199',   // 'Comments/Action Required (Section 2)'
+                // Section 2: Quality (✅ CONFIRMED + SYNTAX FIXED)
+                'sec2_q_orthography': 'entry.461809805',     
+                'sec2_q_complexity': 'entry.2089022497',   
+                'sec2_q_progression': 'entry.1170758486',    
+                'sec2_q_repetition': 'entry.1853297681',   // <-- ✅ SYNTAX FIXED
+                'comments_section2': 'entry.1223718199',   
 
                 // Section 8 / "Section 3" (✅ CONFIRMED)
                 'strengths': 'entry.229083217',
@@ -321,7 +321,7 @@
                 'reviewer_signature': 'entry.479553913',
                 'review_date_final': 'entry.1730871200'
             }
-
+        };
         const docTypeSelect = document.getElementById('docType');
         const languageSelect = document.getElementById('language');
         const gradeLevelSelect = document.getElementById('gradeLevel');
@@ -468,4 +468,5 @@
     </script>
 </body>
 </html>
+
 
