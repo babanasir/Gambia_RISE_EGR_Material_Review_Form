@@ -151,26 +151,275 @@
         // --- Document Link Mapping (MUST BE CONFIGURED) ---
         // The key is a concatenation of DocType_Language_GradeLevel.
         const DOCUMENT_LINKS = {
-            // Updated example keys with new structure
+            // --- DEFAULT ---
+            "default": { 
+                name: "Document Not Mapped", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            
+            // --- ENGLISH (Legacy) ---
             "Teacher Guide_English_Grade 1": { 
                 name: "Grade 1 English Teacher Guide (Draft 2)", 
                 live_url: "https://docs.google.com/document/d/1djFgckcae_FGfnauY75tvdo6B6L84ja/edit?usp=drive_link&ouid=116530440022733619189&rtpof=true&sd=true",
-                pdf_url: "PLACEHOLDER_PDF_LINK_1.pdf" 
+                pdf_url: "#" 
             },
-            "Pupil Book_Pulaar_ECD 2": { 
-                name: "ECD 2 Pulaar Pupil Book (Draft 1)", 
-                live_url: "YOUR_GDRIVE_LIVE_EDIT_LINK_2_HERE",
-                pdf_url: "PLACEHOLDER_PDF_LINK_2.pdf"
+
+            // --- SEEREER ---
+            "Teacher Guide_Seereer_ECD 2": { 
+                name: "ECD 2 Seereer Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/1bznHrNprGh3XRQc1RfV6Fhljpgh1gvGR/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "https://drive.google.com/file/d/16VFzfoPP9EE86hhKyDs-yVsMEcW6SmhJ/view?usp=drive_link"
+            },
+            "Teacher Guide_Seereer_ECD 3": { 
+                name: "ECD 3 Seereer Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/1G1E129w5Xk-iADw1cM9iWGv5gn9YoFUD/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "https://drive.google.com/file/d/1ijhxEW4-ltXlaBvQaqP5b3gZb_7IGxA9/view?usp=drive_link"
+            },
+            "Teacher Guide_Seereer_Grade 1": { 
+                name: "Grade 1 Seereer Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Pupil Book_Seereer_Grade 1": { 
+                name: "Grade 1 Seereer Pupil Book", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Seereer_ECD 2": { 
+                name: "ECD2_3_Grade 1 Seereer Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1Gu4DaRO_UHKwjubrfJGr12U-ofmVx6Wh?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Seereer_ECD 3": { 
+                name: "ECD2_3_Grade 1 Seereer Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1Gu4DaRO_UHKwjubrfJGr12U-ofmVx6Wh?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Seereer_Grade 1": { 
+                name: "ECD2_3_Grade 1 Seereer Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1Gu4DaRO_UHKwjubrfJGr12U-ofmVx6Wh?usp=sharing",
+                pdf_url: "#"
+            },
+
+            // --- SERAHULEH ---
+            "Teacher Guide_Serahuleh_ECD 2": { 
+                name: "ECD 2 Serahuleh Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/1LodG4jEplEYAEEu51ioYRgddouSUuJbM/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "https://drive.google.com/file/d/13RNrLeueQcU0z7Gs3HCUKBKDqj1rJ6kz/view?usp=drive_link"
+            },
+            "Teacher Guide_Serahuleh_ECD 3": { 
+                name: "ECD 3 Serahuleh Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Teacher Guide_Serahuleh_Grade 1": { 
+                name: "Grade 1 Serahuleh Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Pupil Book_Serahuleh_Grade 1": { 
+                name: "Grade 1 Serahuleh Pupil Book", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Serahuleh_ECD 2": { 
+                name: "ECD2_3_Grade 1 Serahuleh Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1dODvwOLZKzC4lv4JpG1G_Jb9daod-JSv?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Serahuleh_ECD 3": { 
+                name: "ECD2_3_Grade 1 Serahuleh Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1dODvwOLZKzC4lv4JpG1G_Jb9daod-JSv?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Serahuleh_Grade 1": { 
+                name: "ECD2_3_Grade 1 Serahuleh Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1dODvwOLZKzC4lv4JpG1G_Jb9daod-JSv?usp=sharing",
+                pdf_url: "#"
+            },
+
+            // --- MANDINKA ---
+            "Teacher Guide_Mandinka_ECD 2": { 
+                name: "ECD 2 Mandinka Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Teacher Guide_Mandinka_ECD 3": { 
+                name: "ECD 3 Mandinka Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Teacher Guide_Mandinka_Grade 1": { 
+                name: "Grade 1 Mandinka Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Pupil Book_Mandinka_Grade 1": { 
+                name: "Grade 1 Mandinka Pupil Book", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Mandinka_ECD 2": { 
+                name: "ECD2_3_Grade 1 Mandinka Supplementary Material", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Mandinka_ECD 3": { 
+                name: "ECD2_3_Grade 1 Mandinka Supplementary Material", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Mandinka_Grade 1": { 
+                name: "ECD2_3_Grade 1 Mandinka Supplementary Material", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+
+            // --- MANJAKU ---
+            "Teacher Guide_Manjaku_ECD 2": { 
+                name: "ECD 2 Manjaku Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/173k32Xd_cz-0jypXdL6S8K0PD3IHhB6B/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "https://drive.google.com/file/d/1V6Th89NgC47aYbwoO6X9jD9VeaTqm9ty/view?usp=drive_link"
+            },
+            "Teacher Guide_Manjaku_ECD 3": { 
+                name: "ECD 3 Manjaku Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/1NWYxYc3M6OvQxkkmEQpt4RnGBger45n2/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "https://drive.google.com/file/d/1o5gGluiOsdG8hwjtRz_1d41jMFqP_BaP/view?usp=drive_link"
+            },
+            "Teacher Guide_Manjaku_Grade 1": { 
+                name: "Grade 1 Manjaku Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Pupil Book_Manjaku_Grade 1": { 
+                name: "Grade 1 Manjaku Pupil Book", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Manjaku_ECD 2": { 
+                name: "ECD2_3_Grade 1 Manjaku Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1yv-CVmLCbv20VueK_1AVDUB-BR5-VMYb?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Manjaku_ECD 3": { 
+                name: "ECD2_3_Grade 1 Manjaku Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1yv-CVmLCbv20VueK_1AVDUB-BR5-VMYb?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Manjaku_Grade 1": { 
+                name: "ECD2_3_Grade 1 Manjaku Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1yv-CVmLCbv20VueK_1AVDUB-BR5-VMYb?usp=sharing",
+                pdf_url: "#"
+            },
+
+            // --- PULAAR ---
+            "Teacher Guide_Pulaar_ECD 2": { 
+                name: "ECD 2 Pulaar Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/1mHg7BigtHYONZQ7xCBofvsX6poZCpKMq/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "https://drive.google.com/file/d/1Q3Fcl9pK4pZhLHd-V0Yosf6dw6iAfcXD/view?usp=drive_link"
+            },
+            "Teacher Guide_Pulaar_ECD 3": { 
+                name: "ECD 3 Pulaar Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Teacher Guide_Pulaar_Grade 1": { 
+                name: "Grade 1 Pulaar Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Pupil Book_Pulaar_Grade 1": { 
+                name: "Grade 1 Pulaar Pupil Book", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Pulaar_ECD 2": { 
+                name: "ECD2_3_Grade 1 Pulaar Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1rIHgH0pUeQFITWSdeKBHCi5Q52GEvNZR?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Pulaar_ECD 3": { 
+                name: "ECD2_3_Grade 1 Pulaar Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1rIHgH0pUeQFITWSdeKBHCi5Q52GEvNZR?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Pulaar_Grade 1": { 
+                name: "ECD2_3_Grade 1 Pulaar Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1rIHgH0pUeQFITWSdeKBHCi5Q52GEvNZR?usp=sharing",
+                pdf_url: "#"
+            },
+
+            // --- OLOF ---
+            "Teacher Guide_Olof_ECD 2": { 
+                name: "ECD 2 Olof Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/1u572OFc1JaGF9LsQ2q_b8w_GwtNYn5br/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "#"
+            },
+            "Teacher Guide_Olof_ECD 3": { 
+                name: "ECD 3 Olof Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/1pbyO5rK_8KTzTj74QcDu4zqSRb1MoS8K/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "#"
+            },
+            "Teacher Guide_Olof_Grade 1": { 
+                name: "Grade 1 Olof Teacher Guide", 
+                live_url: "https://docs.google.com/document/d/1gYIdYkSo81QITPnpYhrhU2Xu9VJkOksF/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "#"
+            },
+            "Pupil Book_Olof_Grade 1": { 
+                name: "Grade 1 Olof Pupil Book", 
+                live_url: "https://docs.google.com/document/d/15UOTuTYhsN50gYqBhj42mIeGwolYaqx4/edit?usp=sharing&ouid=116530440022733619189&rtpof=true&sd=true",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Olof_ECD 2": { 
+                name: "ECD2_3_Grade 1 Olof Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1vZmKhIY2mXrmUzBdCbif3VWSvwzzDGrQ?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Olof_ECD 3": { 
+                name: "ECD2_3_Grade 1 Olof Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1vZmKhIY2mXrmUzBdCbif3VWSvwzzDGrQ?usp=sharing",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Olof_Grade 1": { 
+                name: "ECD2_3_Grade 1 Olof Supplementary Material", 
+                live_url: "https://drive.google.com/drive/folders/1vZmKhIY2mXrmUzBdCbif3VWSvwzzDGrQ?usp=sharing",
+                pdf_url: "#"
+            },
+
+            // --- JOLA ---
+            "Teacher Guide_Jola_ECD 2": { 
+                name: "ECD 2 Jola Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Teacher Guide_Jola_ECD 3": { 
+                name: "ECD 3 Jola Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Teacher Guide_Jola_Grade 1": { 
+                name: "Grade 1 Jola Teacher Guide", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Pupil Book_Jola_Grade 1": { 
+                name: "Grade 1 Jola Pupil Book", 
+                live_url: "#",
+                pdf_url: "#"
+            },
+            "Supplementary Material_Jola_ECD 2": { 
+                name: "ECD2_3_Grade 1 Jola Supplementary Material", 
+                live_url: "#",
+                pdf_url: "#"
             },
             "Supplementary Material_Jola_ECD 3": { 
-                name: "ECD 3 Jola Supplementary Material (Final)", 
-                live_url: "YOUR_GDRIVE_LIVE_EDIT_LINK_3_HERE",
-                pdf_url: "PLACEHOLDER_PDF_LINK_3.pdf"
+                name: "ECD2_3_Grade 1 Jola Supplementary Material", 
+                live_url: "#",
+                pdf_url: "#"
             },
-            // Add all your document mappings here
-            
-            "default": { 
-                name: "Document Not Mapped", 
+            "Supplementary Material_Jola_Grade 1": { 
+                name: "ECD2_3_Grade 1 Jola Supplementary Material", 
                 live_url: "#",
                 pdf_url: "#"
             }
